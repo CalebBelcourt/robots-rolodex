@@ -14,7 +14,7 @@ class App extends React.Component{
   }
 
   componentDidMount(){
-    fetch('https://my-json-server.typicode.com/CalebBelcourt/ReactProject1/robot')
+    fetch('https://jsonplaceholder.typicode.com/users')
     .then(response => response.json())
     .then(robot => this.setState({ robots: robot}))
   }
@@ -26,8 +26,8 @@ class App extends React.Component{
 
     const filteredRobots = robots.filter(robot =>
       robot.name.toLowerCase().includes(searchField.toLowerCase())
-    );
-    
+    )
+
     return (
       <div className="App">
       <input
