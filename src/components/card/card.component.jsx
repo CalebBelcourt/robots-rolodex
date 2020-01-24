@@ -8,7 +8,7 @@ export const Card = props => (
       alt='robot'
       src={`https://robohash.org/${props.robot.id}?set=set1&size=180x180`}
     />
-    <h1> {props.robot.name} </h1>
+    <h2> {props.robot.name} </h2>
   </div>
 
 )

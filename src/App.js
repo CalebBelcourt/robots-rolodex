@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { CardList } from './components/card-list/card-list.component';
+import { SearchBox } from './components/search-box/search-box.component';
 
 import './App.css';
 
@@ -11,6 +12,8 @@ class App extends React.Component{
       robots: [],
       searchField: ''
     };
+
+    //this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount(){
@@ -18,6 +21,10 @@ class App extends React.Component{
     .then(response => response.json())
     .then(robot => this.setState({ robots: robot}))
   }
+
+  handleChange = (e) => {
+      this.setState({ searchField: e.target.value })
+  };
 
   render(){
 
@@ -30,10 +37,10 @@ class App extends React.Component{
 
     return (
       <div className="App">
-      <input
-        type='search'
-        placeholder='search robots'
-        onChange={e => this.setState({ searchField: e.target.value })}
+        <h1> Robots Rolodex </h1>
+        <SearchBox
+          placeholder='search robots'
+          handleChange = {this.handleChange}
         />
       <CardList robots={filteredRobots}/>
       </div>
